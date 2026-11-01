@@ -6,7 +6,7 @@ public Plugin myinfo =
 	name = "Fix Mapchange Crash",
 	author = "Ilusion9",
 	description = "Fix players crash on map change.",
-	version = "1.2",
+	version = "1.2.1",
 	url = "https://github.com/Ilusion9/"
 };
 
@@ -73,5 +73,6 @@ public Action Timer_ForceChangeLevel(Handle timer, DataPack pk)
 	pk.ReadString(arguments, sizeof(arguments));
 	
 	g_MapChangeFlags &= ~MAPCHANGE_RECONNECTING_CLIENTS;
-	ServerCommand(arguments);
+	ServerCommand("%s", arguments);
+	return Plugin_Stop;
 }
