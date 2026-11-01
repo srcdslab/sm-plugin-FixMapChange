@@ -73,6 +73,5 @@ public Action Timer_ForceChangeLevel(Handle timer, DataPack pk)
 	pk.ReadString(arguments, sizeof(arguments));
 	
 	g_MapChangeFlags &= ~MAPCHANGE_RECONNECTING_CLIENTS;
-	ServerCommand("%s", arguments);
-	return Plugin_Stop;
+	ServerCommand(arguments);
 }
